@@ -3,6 +3,7 @@ const express = require ('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const pool = require ('./db');
+const path = require ('path');
 
 // const data = await pool.query ("SELECT * FROM CRASH_EVENT;");
 //     console.log("Sending data");
