@@ -21,19 +21,18 @@ app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
-// get todo
-app.get("/getall", async (req, res) => {
+app.get("/get/:table", async (req, res) => {
   try {
-    const data = await pool.query("SELECT * FROM CRASH_EVENT");
-    console.log("Sending data");
+    console.log(`At ${req.params.table}`);
+    const data = await pool.query(`SELECT * FROM ${req.params.table}`);
     res.json (data.rows);
-    console.log("sent data:");
-    console.log(data.rows);
-
   } catch (err) {
     console.error (err.message);
   }
 })
+
+// get todo
+
 
 
 app.listen (port, () => {
