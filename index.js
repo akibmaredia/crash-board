@@ -17,7 +17,7 @@ app.use (express.json());
 
 // get all todo
 app.get("/", async (res) => {
-  
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 // get todo
