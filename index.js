@@ -1,7 +1,7 @@
 const express = require ('express');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const pool = require ('./db');
 
 // const data = await pool.query ("SELECT * FROM CRASH_EVENT;");
@@ -16,12 +16,12 @@ app.use (express.json());
 // Routes------Routes-------Routes------Routes-------Routes-------Routes//
 
 // get all todo
-app.get("/", async (res) => {
+app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 // get todo
-app.get("/getall", async (res) => {
+app.get("/getall", async (req, res) => {
   try {
     const data = await pool.query("SELECT * FROM CRASH_EVENT");
     console.log("Sending data");
