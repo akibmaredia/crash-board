@@ -1,0 +1,76 @@
+{
+  "crashes" : [
+    {
+        "report_no": 5000001,
+        "vehicle_no": 1,
+        "model": "ACCORD",
+        "person_no": 1,
+        "latitude": "29.65336",
+        "longitude": "-82.340477"
+    },
+    {
+        "report_no": 5000001,
+        "vehicle_no": 2,
+        "model": "MODEL S",
+        "person_no": 3,
+        "latitude": "29.65336",
+        "longitude": "-82.340477"
+    },
+    {
+        "report_no": 5000002,
+        "vehicle_no": 1,
+        "model": "FIREBIRD",
+        "person_no": 1,
+        "latitude": "29.627061",
+        "longitude": "-82.372452"
+    },
+    {
+        "report_no": 5000002,
+        "vehicle_no": 2,
+        "model": "CAMARO",
+        "person_no": 2,
+        "latitude": "29.627061",
+        "longitude": "-82.372452"
+    },
+    {
+        "report_no": 5000003,
+        "vehicle_no": 1,
+        "model": "EXPEDITION",
+        "person_no": 1,
+        "latitude": "29.627653",
+        "longitude": "-82.37244"
+    },
+    {
+        "report_no": 5000003,
+        "vehicle_no": 2,
+        "model": "YUKON",
+        "person_no": 2,
+        "latitude": "29.627653",
+        "longitude": "-82.37244"
+    },
+    {
+        "report_no": 5000004,
+        "vehicle_no": 1,
+        "model": "TRANSIT",
+        "person_no": 1,
+        "latitude": "29.623165",
+        "longitude": "-82.390096"
+    },
+    {
+        "report_no": 5000005,
+        "vehicle_no": 1,
+        "model": "CHEROKEE",
+        "person_no": 1,
+        "latitude": "29.620315",
+        "longitude": "-82.384064"
+    },
+    {
+        "report_no": 5000005,
+        "vehicle_no": 2,
+        "model": "E300",
+        "person_no": 2,
+        "latitude": "29.620315",
+        "longitude": "-82.384064"
+    }
+  ]
+}

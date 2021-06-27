@@ -1,0 +1,29 @@
+{
+    "hourly": [
+        {
+            "crash_time": "11:12:00",
+            "crash_severity": "Property Damage Only",
+            "numeric_severity": 1
+        },
+        {
+            "crash_time": "15:58:00",
+            "crash_severity": "Serious Injury",
+            "numeric_severity": 5
+        },
+        {
+            "crash_time": "16:08:00",
+            "crash_severity": "Injury",
+            "numeric_severity": 3
+        },
+        {
+            "crash_time": "17:15:00",
+            "crash_severity": "Fatal",
+            "numeric_severity": 8
+        },
+        {
+            "crash_time": "18:11:00",
+            "crash_severity": "Property Damage Only",
+            "numeric_severity": 1
+        }
+    ]
+}

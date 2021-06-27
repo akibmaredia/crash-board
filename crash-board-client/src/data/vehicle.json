@@ -1,0 +1,101 @@
+[
+  {
+      "report_no": 5000001,
+      "vehicle_no": 1,
+      "year": 2017,
+      "make": "HOND",
+      "model": "ACCORD",
+      "color": "WHT",
+      "street": "NW 14th Street",
+      "travel_direction": "North",
+      "maneuver": "Straight Ahead"
+  },
+  {
+      "report_no": 5000001,
+      "vehicle_no": 2,
+      "year": 2020,
+      "make": "TESL",
+      "model": "MODEL S",
+      "color": "RED",
+      "street": "NW 2nd Avenue",
+      "travel_direction": "West",
+      "maneuver": "Turning Left"
+  },
+  {
+      "report_no": 5000002,
+      "vehicle_no": 1,
+      "year": 1968,
+      "make": "PONT",
+      "model": "FIREBIRD",
+      "color": "WHT",
+      "street": "SR-24",
+      "travel_direction": "East",
+      "maneuver": "Turning Left"
+  },
+  {
+      "report_no": 5000002,
+      "vehicle_no": 2,
+      "year": 1984,
+      "make": "CHEV",
+      "model": "CAMARO",
+      "color": "BLU",
+      "street": "SR-24",
+      "travel_direction": "West",
+      "maneuver": "Straight Ahead"
+  },
+  {
+      "report_no": 5000003,
+      "vehicle_no": 1,
+      "year": 2008,
+      "make": "FORD",
+      "model": "EXPEDITION",
+      "color": "BLK",
+      "street": "SW 34th Street",
+      "travel_direction": "North",
+      "maneuver": "Straight Ahead"
+  },
+  {
+      "report_no": 5000003,
+      "vehicle_no": 2,
+      "year": 2018,
+      "make": "GMC",
+      "model": "YUKON",
+      "color": "GRN",
+      "street": "SW 34th Street",
+      "travel_direction": "North",
+      "maneuver": "Turning Right"
+  },
+  {
+      "report_no": 5000004,
+      "vehicle_no": 1,
+      "year": 2016,
+      "make": "FORD",
+      "model": "TRANSIT",
+      "color": "SIL",
+      "street": "I-75",
+      "travel_direction": "North",
+      "maneuver": "Straight Ahead"
+  },
+  {
+      "report_no": 5000005,
+      "vehicle_no": 1,
+      "year": 2019,
+      "make": "JEEP",
+      "model": "CHEROKEE",
+      "color": "BLK",
+      "street": "Target Parking Lot",
+      "travel_direction": "East",
+      "maneuver": "Backing"
+  },
+  {
+      "report_no": 5000005,
+      "vehicle_no": 2,
+      "year": 2021,
+      "make": "MERC",
+      "model": "E300",
+      "color": "WHT",
+      "street": "Target Parking Lot",
+      "travel_direction": "South",
+      "maneuver": "Straight Ahead"
+  }
+]

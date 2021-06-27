@@ -1,0 +1,83 @@
+[
+  {
+      "report_no": 5000001,
+      "vehicle_no": 1,
+      "person_no": 1,
+      "injury_severity": "None",
+      "sex": "M",
+      "age": 62,
+      "restraint_systems": "Shoulder & Lap Belts"
+  },
+  {
+      "report_no": 5000001,
+      "vehicle_no": 2,
+      "person_no": 3,
+      "injury_severity": "None",
+      "sex": "F",
+      "age": 26,
+      "restraint_systems": "Shoulder & Lap Belts"
+  },
+  {
+      "report_no": 5000002,
+      "vehicle_no": 1,
+      "person_no": 1,
+      "injury_severity": "Injury",
+      "sex": "F",
+      "age": 56,
+      "restraint_systems": "Lap Belt Only"
+  },
+  {
+      "report_no": 5000002,
+      "vehicle_no": 2,
+      "person_no": 2,
+      "injury_severity": "Serious Injury",
+      "sex": "M",
+      "age": 68,
+      "restraint_systems": "None Used"
+  },
+  {
+      "report_no": 5000003,
+      "vehicle_no": 1,
+      "person_no": 1,
+      "injury_severity": "None",
+      "sex": "M",
+      "age": 22,
+      "restraint_systems": "Shoulder & Lap Belts"
+  },
+  {
+      "report_no": 5000003,
+      "vehicle_no": 2,
+      "person_no": 2,
+      "injury_severity": "Injury",
+      "sex": "F",
+      "age": 19,
+      "restraint_systems": "Shoulder & Lap Belts"
+  },
+  {
+      "report_no": 5000004,
+      "vehicle_no": 1,
+      "person_no": 1,
+      "injury_severity": "Fatal",
+      "sex": "M",
+      "age": 29,
+      "restraint_systems": "None Used"
+  },
+  {
+      "report_no": 5000005,
+      "vehicle_no": 1,
+      "person_no": 1,
+      "injury_severity": "None",
+      "sex": "F",
+      "age": 18,
+      "restraint_systems": "Shoulder & Lap Belts"
+  },
+  {
+      "report_no": 5000005,
+      "vehicle_no": 2,
+      "person_no": 2,
+      "injury_severity": "None",
+      "sex": "M",
+      "age": 34,
+      "restraint_systems": "Shoulder & Lap Belts"
+  }
+]

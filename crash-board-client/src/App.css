@@ -1,0 +1,16 @@
+.map {
+  width: 100%;
+  height: 100vh;
+}
+
+.mapcontainer {
+  width: 50%;
+}
+
+.chartcontainer {
+  width: 50%;
+  margin-top: 0;
+}
+.container {
+  display: flex;
+}
