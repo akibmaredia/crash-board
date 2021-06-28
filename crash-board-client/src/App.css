@@ -8,9 +8,9 @@
 }
 
 .chartcontainer {
-  width: 50%;
-  margin-top: 0;
+  width: 50%; 
 }
+
 .container {
   display: flex;
 }

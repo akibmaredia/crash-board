@@ -1,16 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
-import * as crashData from "../data/crash_event.json";
+// import * as crashData from "../data/crash_event.json";
 import '../App.css';
 
 export const icon = new Icon({
-  iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-  iconSize: [25, 35]
+  iconUrl: "/car_crash.png",
+  iconSize: [45, 55]
 });
 
+
+
 export default function Map () {
-  const [activeCrash, setActiveCrash] = React.useState(null);
+  const [activeCrash, setActiveCrash] = useState(null);
+  const [data, setData] = useState ([]);
+
+  useEffect(async () => {
+      await fetch ("/getCrashPoints")
+        .then ((response) => response.json())
+        .then (data => setData(data));
+    }, []);
 
   return (
     <MapContainer className = "map" center={[29.6346346,-82.3583007]} zoom={13.4}>
@@ -19,23 +28,23 @@ export default function Map () {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
 
-          {crashData.crashes.map(crash => (
+          {data && data.map(crash => (
             <Marker 
-              key = {crash.report_no}
+              key = {crash.vehicle_no + crash.person_no + crash.report_no}
               position = {[
                 parseFloat(crash.latitude),
                 parseFloat(crash.longitude)
               ]}
               onClick = {() => {
-                console.log(crashData.crashes);
                 setActiveCrash(crash);
               }}
               icon = {icon}
             >
               <Popup>
                 <div>
-                  <p>{crash.crash_date}</p>
-                  <p>{crash.crash_time}</p>
+                  <p>Report#:{crash.report_no}</p>
+                  <p>Car:{crash.make + " " + crash.model + " " +crash.year}</p>
+                  <p>Time:{crash.crash_date + " " + crash.crash_time}</p>
                 </div>
               </Popup>
             </Marker>

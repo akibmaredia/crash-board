@@ -13,11 +13,13 @@ export default function App() {
         <Map />
       </div>
       <div className = "chartcontainer">
-        <HourlyChart />
-      </div>
-      <div>
-        <Chart />
-      </div>
+        <div>
+          <HourlyChart />
+        </div>
+        <div className = "second">
+          <Chart />
+        </div>
+      </div>      
     </div>
   );
 }

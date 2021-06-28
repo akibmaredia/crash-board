@@ -9,7 +9,7 @@ const { response } = require('express');
 
 // access to request.body
 app.use (express.json());
-app.use(express.static(path.join(__dirname, 'crash-board-client/public')));
+app.use(express.static(path.join(__dirname, './crash-board-client/build')));
 // app.use (cors);
 // Routes------Routes-------Routes------Routes-------Routes-------Routes//
 
@@ -24,9 +24,14 @@ app.get("/getCrashPoints", async (req, res) => {
     const data = await pool.query(`
       SELECT 
         crash_event.report_no, 
-        vehicle.vehicle_no, 
-        model, 
+        vehicle.vehicle_no,
+        make, 
+        model,
+        vehicle.year,
         person_no,
+        crash_date,
+        crash_time,
+        crash_event.street,
         crash_event.latitude,
         crash_event.longitude
       FROM crash_event
@@ -37,11 +42,13 @@ app.get("/getCrashPoints", async (req, res) => {
           AND driver.vehicle_no = vehicle.vehicle_no
     `);
 
-    const response = {};
+    data.rows.map(d => {
+      // console.log(typeof d.crash_date);
+      var str = JSON.stringify(d.crash_date);
+      d.crash_date = str.substring(1, 11);
+    })
 
-    response.crashes = data.rows;
-
-    res.json (response);
+    res.json (data.rows);
   } catch (err) {
     console.error (err.message);
   }
@@ -62,18 +69,12 @@ app.get("/getHourlyCrashes", async (req, res) => {
       "Serious Injury": 5,
       "Fatal": 8
     }
-    const dataRows = data.rows;
 
-    dataRows.map(d => {
+    data.rows.map(d => {
       d.numeric_severity = sev[d.crash_severity];
     });
 
-    console.log("Sent response for /hourlyCrashes");
-
-    const response = {};
-    response.hourly = dataRows;
-
-    res.json (response);
+    res.json (data.rows);
 
   } catch (err) {
     console.error (err.message);
@@ -86,18 +87,13 @@ app.get("/getManeuver", async (req, res) => {
       SELECT maneuver, COUNT (maneuver) as frequency
       FROM vehicle
         GROUP BY maneuver
-        ORDER BY COUNT (maneuver) ASC
     `)
 
-    console.log (data.rows);
-    
-    const response = {};
+    data.rows.map(d => {
+      d.frequency = parseInt(d.frequency);
+    });
 
-    response.maneuvers = data.rows;
-
-    console.log (response);
-
-    res.json (response);
+    res.json (data.rows);
   } catch (err) {
     console.error (err.message);
   }
@@ -107,9 +103,8 @@ app.get("/api", (req, res) => {
   res.json ({"message": "hello!!"});
 })
 
-app.get("/.*", (req, res) => {
-  console.log("Open in Browser")
-  res.sendFile(path.join(__dirname+'./crash-board-client/public/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname+'./crash-board-client/build', 'index.html'));
 });
 
 app.listen (port, () => {
