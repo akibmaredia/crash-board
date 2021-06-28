@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
-// import * as crashData from "../data/crash_event.json";
-import '../App.css';
 
 export const icon = new Icon({
   iconUrl: "/car_crash.png",
@@ -22,7 +20,7 @@ export default function Map () {
     }, []);
 
   return (
-    <MapContainer className = "map" center={[29.6346346,-82.3583007]} zoom={13.4}>
+    <MapContainer className = "map" center={[29.6346346,-82.3583007]} zoom={13}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -42,9 +40,11 @@ export default function Map () {
             >
               <Popup>
                 <div>
-                  <p>Report#:{crash.report_no}</p>
-                  <p>Car:{crash.make + " " + crash.model + " " +crash.year}</p>
-                  <p>Time:{crash.crash_date + " " + crash.crash_time}</p>
+                  <p>Report#: {crash.report_no}</p>
+                  <p>Driver sex: {crash.sex}</p>
+                  <p>Driver age: {crash.age}</p>
+                  <p>Car: {crash.make + " " + crash.model + " " +crash.year}</p>
+                  <p>Time: {crash.crash_date + " " + crash.crash_time}</p>
                 </div>
               </Popup>
             </Marker>

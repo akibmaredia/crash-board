@@ -2,7 +2,7 @@ const express = require ('express');
 const cors = require ('cors');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3001;
 const pool = require ('./db');
 const path = require ('path');
 const { response } = require('express');
@@ -29,9 +29,10 @@ app.get("/getCrashPoints", async (req, res) => {
         model,
         vehicle.year,
         person_no,
+        driver.sex,
+        driver.age,
         crash_date,
         crash_time,
-        crash_event.street,
         crash_event.latitude,
         crash_event.longitude
       FROM crash_event
@@ -87,7 +88,7 @@ app.get("/getManeuver", async (req, res) => {
       SELECT maneuver, COUNT (maneuver) as frequency
       FROM vehicle
         GROUP BY maneuver
-    `)
+    `);
 
     data.rows.map(d => {
       d.frequency = parseInt(d.frequency);
@@ -98,6 +99,25 @@ app.get("/getManeuver", async (req, res) => {
     console.error (err.message);
   }
 })
+
+app.get("/getRatio", async (req, res) => {
+  try {
+    const data = await pool.query (`
+      SELECT sex, COUNT (sex) as freq
+      FROM driver
+        GROUP BY sex
+    `);
+
+    data.rows.map(d => {
+      d.freq = parseInt(d.freq);
+      d.sex = d.sex === "M" ? "Male" : "Female";
+    });
+
+    res.json (data.rows);
+  } catch(err) {
+    console.error (err.message);
+  }
+});
 
 app.get("/api", (req, res) => {
   res.json ({"message": "hello!!"});

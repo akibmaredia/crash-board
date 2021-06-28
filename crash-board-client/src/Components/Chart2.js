@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
-import '../App.css';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
+const CustomTooltip = (props) => {
+  var payload = props.payload;
+  const active = props.active;
+  if (active && payload && payload.length) {
+    payload = payload[0].payload;
+    return (
+      <div className = "dataContainer">
+        <p>Cars: {payload.frequency}</p>
+      </div>
+    );
+  }
 
-export default function Chart () {
+  return null;
+};
+
+export default function Chart2 () {
   const [data, setData] = useState ([]);
-  useEffect(async () => {
-    await fetch ("/getManeuver")
+  useEffect(() => {
+    fetch ("/getManeuver")
       .then ((response) => response.json())
       .then (data => setData(data));
   }, []);
@@ -26,7 +39,8 @@ export default function Chart () {
           }}
         >
           <XAxis dataKey = "maneuver" label={{ value: "Maneuver", position: "bottom" }}/>
-          <YAxis label={{ value: "# of Crashes", angle: -90, position: "insideLeftBottom" }}/>
+          <YAxis label={{ value: "# of Cars", angle: -90, position: "insideLeftBottom" }}/>
+          <Tooltip content = {<CustomTooltip />}/>
           <Bar dataKey="frequency" fill="#888" />
         </BarChart>
       </ResponsiveContainer>
